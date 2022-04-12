@@ -34,3 +34,5 @@ Sovellukseen voisi rakentaa kalenterin, johon halutessaan kykenisi lisäämään
 arvioiman aikuistumisajankohdan ja merkitä ylös tapahtuneet muodonvaihdokset 
 uudelleenarvioinnin helpottamiseksi. Lisäksi sovellusta voisi laajentaa muistamaan 
 muutaman eniten tarvitsemani lajin muodonvaihdostiheydet ja määrät käytön nopeuttamiseksi.
+Myös kuoriutumispäivän laskeminen muodonvaihdosten määrästä voisi olla yksi mahdollisista 
+lisäominaisuuksista.
