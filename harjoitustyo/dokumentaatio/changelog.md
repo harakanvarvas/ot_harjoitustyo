@@ -18,4 +18,16 @@
 
 ### Viikko 4
 
--Calculator_test-kattavuus 90%
+-Luokkaa UiStart korjailtu sietämään erilaisia virhetilanteita
+
+-Luokkaan UiStart lisätty metodit määrien ja taajuuksien keräämisen eri vaiheille
+
+-Luokkaa Calculator päivitetty viikkojen laskentaan kykenevällä funktiolla
+
+-Luokkaan Calendar tehty alustavat funktiot päivän tarkistamiseen, viikon tarkistamiseen ja viikon laskemiseen, muutetaan metodeiksi myöhemmin
+
+-Luokalle Calculator lisätty testejä
+
+-Luokalle Calendar lisätty testitiedosto ja testi
+
+-Pylint lisätty
