@@ -23,17 +23,20 @@ ja muuttaa esimerkiksi terraario-olosuhteita hyvissä ajoin nahanluontiin sopiva
 
 ##### Sovelluksen käynnistäminen tapahtuu komennolla
 ```
-python3 -m poetry run invoke start
+poetry run invoke start
 ```
 
 ##### Testien ajaminen tapahtuu komennolla
 ```
-python3 -m poetry run invoke test
+poetry run invoke test
 ```
 
 ##### Testikattavuuden kerääminen ja HTML-tiedoston muodostaminen tapahtuu komennolla
 ```
-python3 -m poetry run invoke coverage-report
+poetry run invoke coverage-report
 ```
 
-
+##### Pylintin laatutarkistuksen suorittaminen tapahtuu komennolla
+```
+poetry run invoke lint
+```
