@@ -7,6 +7,9 @@ class UiStart:
             "1": "Tee uusi arvio selkärangattoman aikuistumisesta",
             "2": "Lopeta"
         }
+        self.amount = 0
+        self.frequency = 0
+        self.last = 0
 
     def start(self):
 
@@ -23,14 +26,14 @@ class UiStart:
                 print("Suljetaan sovellus")
                 break
             if command == "1":
-                UiStart.calculation(self)
+                UiStart.amount_of_moults(self)
 
 
-    def calculation(self):
+    def amount_of_moults(self):
         while True:
-            amount_of_moults = input("Anna jäljelläolevien nahanluontien määrä: ")
+            amount = input("Anna jäljelläolevien nahanluontien määrä: ")
             try:
-                amount = int(amount_of_moults)
+                self.amount = int(amount)
             except ValueError:
                 print("Virhe: Määrän tulee olla positiivinen kokonaisluku")
                 continue
@@ -40,21 +43,25 @@ class UiStart:
                 continue
 
             break
+        UiStart.frequency_of_moults(self)
 
+    def frequency_of_moults(self):
         while True:
-            frequency_of_moults = input("Anna arvioitu nahanluontien taajuus päivinä: ")
+            frequency = input("Anna arvioitu nahanluontien taajuus päivinä: ")
             try:
-                frequency = int(frequency_of_moults)
+                self.frequency = int(frequency)
             except ValueError:
                 print("Virhe: Taajuuden tulee olla positiivinen kokonaisluku")
                 continue
 
-            if int(frequency_of_moults) < 0:
+            if frequency < 0:
                 print("Virhe: Taajuus ei voi olla negatiivinen")
                 continue
 
             break
+        UiStart.change(self)
 
+    def change(self):
         while True:
             change = input("Muuta aikaa ennen viimeistä nahanluontia? (y/n) ")
             if change.lower() == "y" or change.lower() == "n":
@@ -63,23 +70,23 @@ class UiStart:
 
         if change.lower() == "y":
             while True:
-                last_moult = input("Kesto päivinä: ")
+                last = input("Kesto päivinä: ")
                 try:
-                    last = int(last_moult)
+                    self.last = int(last)
                 except ValueError:
                     print("Virhe: Keston tulee olla annettu positiivisena kokonaislukuna")
                     continue
 
-                if int(last_moult) < 0:
+                if int(last) < 0:
                     print("Virhe: Kesto ei voi olla negatiivinen")
                     continue
 
                 break
 
-        elif change.lower() == "n":
-            last_moult = 0
+        result = Calculator.calculate(self.amount, self.frequency, self.last)
 
-
-        result = Calculator.calculate(amount, frequency, last)
-
-        print(result)
+        if result >= 7:
+            weeks = Calculator.weeks(result)
+            print(f"Aikuistuminen tapahtuu arviolta {weeks[0]} viikon kuluttua, viikolla {weeks[1]}")
+        else:
+            print(f"Aikuistuminen tapahtuu arviolta {result} päivän kuluttua")
