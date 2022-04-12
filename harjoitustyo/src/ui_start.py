@@ -38,8 +38,8 @@ class UI_calculator:
                 print("Virhe: Määrän tulee olla positiivinen kokonaisluku")
                 continue
                 
-            if int(amount_of_moults) < 0:
-                print("Virhe: Määrä ei voi olla negatiivinen")
+            if int(amount_of_moults) < 1:
+                print("Virhe: Määrä ei voi olla pienempi kuin 1")
                 continue
 
             break
@@ -59,7 +59,7 @@ class UI_calculator:
             break
 
         while True:
-            change = input("Muuta aikaa viimeiselle nahanluonnille ennen aikuisuutta? (y/n) ")
+            change = input("Muuta aikaa ennen viimeistä nahanluontia? (y/n) ")
             if change.lower() == "y" or change.lower() == "n":
                 break
             else:
@@ -67,7 +67,7 @@ class UI_calculator:
 
         if change.lower() == "y":
             while True:
-                last_moult = input("Juveniili -> Aikuinen -kesto päivinä: ")
+                last_moult = input("Kesto päivinä: ")
                 try: 
                     last = int(last_moult)
                 except ValueError:
@@ -83,6 +83,8 @@ class UI_calculator:
         elif change.lower() == "n":
             last_moult = 0
 
+
         result = Calculator.calculate(amount_of_moults, frequency_of_moults, last_moult)
 
-        print(f"Arvioitu aikuistuminen tapahtuu {result} päivän kuluttua")
+        print(result)
+
