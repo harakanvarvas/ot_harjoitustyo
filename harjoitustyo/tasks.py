@@ -1,5 +1,4 @@
 from invoke import task
-
 @task
 def coverage(ctx):
     ctx.run("coverage run --branch -m pytest", pty=True)
