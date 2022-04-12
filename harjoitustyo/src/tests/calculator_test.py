@@ -27,7 +27,7 @@ class TestCalculator(unittest.TestCase):
     
     def test_calculator_returns_the_result_when_frequency_equals_zero(self):
         result = Calculator.calculate(1, 0, 1)
-        self.assertEqual(result, "Aikuistuminen tapahtuu arviolta 0 päivän kuluttua")
+        self.assertEqual(result, "Aikuistuminen tapahtuu arviolta 1 päivän kuluttua")
     
     def test_calculator_returns_the_result_when_all_the_variables_are_negative(self):
         result = Calculator.calculate(-1, -1, -1)
