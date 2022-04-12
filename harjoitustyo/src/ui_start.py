@@ -1,6 +1,6 @@
 from calculator import Calculator
 
-class UI_start:
+class UiStart:
 
     def __init__(self):
         self.commands = {
@@ -12,24 +12,21 @@ class UI_start:
 
         while True:
 
-            for command in self.commands:
-                print(command, self.commands[command])
+            for command, explanation in self.commands.items():
+                print(command, explanation)
 
-            command = input("Anna komento: ")
+            command = input("Anna komennon numero: ")
+
+            if command not in self.commands:
+                print("Virheellinen komento")
             if command == "2":
                 print("Suljetaan sovellus")
                 break
             if command == "1":
-                UI_calculator.calculator_start(self)
-                
-            if command not in self.commands:
-                print("Virheellinen komento")
+                UiStart.calculation(self)
 
 
-class UI_calculator:
-
-    def calculator_start(self):
-
+    def calculation(self):
         while True:
             amount_of_moults = input("Anna jäljelläolevien nahanluontien määrä: ")
             try:
@@ -37,8 +34,8 @@ class UI_calculator:
             except ValueError:
                 print("Virhe: Määrän tulee olla positiivinen kokonaisluku")
                 continue
-                
-            if int(amount_of_moults) < 1:
+
+            if amount < 1:
                 print("Virhe: Määrä ei voi olla pienempi kuin 1")
                 continue
 
@@ -62,13 +59,12 @@ class UI_calculator:
             change = input("Muuta aikaa ennen viimeistä nahanluontia? (y/n) ")
             if change.lower() == "y" or change.lower() == "n":
                 break
-            else:
-                print("Virhe: Merkki ei ole vaihtoehdoissa")
+            print("Virhe: Merkki ei ole vaihtoehdoissa")
 
         if change.lower() == "y":
             while True:
                 last_moult = input("Kesto päivinä: ")
-                try: 
+                try:
                     last = int(last_moult)
                 except ValueError:
                     print("Virhe: Keston tulee olla annettu positiivisena kokonaislukuna")
@@ -84,7 +80,6 @@ class UI_calculator:
             last_moult = 0
 
 
-        result = Calculator.calculate(amount_of_moults, frequency_of_moults, last_moult)
+        result = Calculator.calculate(amount, frequency, last)
 
         print(result)
-
