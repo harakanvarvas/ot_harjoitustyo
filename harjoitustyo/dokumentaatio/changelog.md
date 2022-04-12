@@ -14,3 +14,8 @@
 -UI_start_test-kattavuus 100%
 
 -Calculator_test-kattavuus 80%
+
+
+### Viikko 4
+
+-Calculator_test-kattavuus 90%
